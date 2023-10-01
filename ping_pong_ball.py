@@ -26,3 +26,22 @@ def move_paddle2(up, down):
         paddle2.y -= paddle_speed
     if down:
         paddle2.y += paddle_speed
+def move_ball():
+    global ball_speed_x, ball_speed_y
+
+    ball.x += ball_speed_x
+    ball.y += ball_speed_y
+
+    # Bounce off the walls
+    if ball.top <= 0 or ball.bottom >= height:
+        ball_speed_y *= -1
+    if ball.left <= 0 or ball.right >= width:
+        ball_speed_x *= -1
+
+    # Bounce off the paddles
+    if ball.colliderect(paddle1) or ball.colliderect(paddle2):
+        ball_speed_x *= -1
+paddle1_up = False
+paddle1_down = False
+paddle2_up = False
+paddle2_down = False
