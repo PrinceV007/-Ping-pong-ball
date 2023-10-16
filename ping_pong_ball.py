@@ -153,6 +153,10 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
                 break
+            if event.type == pygame.KEYDOWN and event.key == pygame.K_ESCAPE:
+                print("\n Exit")
+                run = False  # Exit the game if the Esc key is pressed
+
 
         keys = pygame.key.get_pressed()
         handle_paddle_movement(keys, left_paddle, right_paddle)
